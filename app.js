@@ -11,7 +11,13 @@ fetch(apiUrl)
             finishLoading();
         })
     )
-    .catch(error => console.error(error));
+    .catch(error => errorDisplay("An error has occured!\n Please contact the Site Admin", error));
+
+function errorDisplay(text, error) {
+    console.error(error)
+    resultElement.textContent = text;
+    resultElement.style.color = "red";
+}
 
 function finishLoading() {
     document.getElementById('form').style.display = "block";
